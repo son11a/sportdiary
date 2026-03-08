@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sportlist</title>
+</head>
+<body>
+
+<h2>User Sports</h2>
+
+
+<a th:href="@{/addsport/{id}(id=${userid})}">Add Sport</a>
+
+<table>
+<tr>
+<th>Date</th>
+<th>Time</th>
+<th>Distance</th>
+<th>Category</th>
+<th></th>
+</tr>
+
+<tr th:each="sport : ${sports}">
+<td th:text="${sport.date}"></td>
+<td th:text="${sport.time} + ' min'"></td>
+<td th:text="${sport.distance} + ' km'"></td>
+<td th:text="${sport.category.name}"></td>
+
+<td><a th:href="@{/delete/{id}(id=${sport.id})}">Delete</a></td>
+</tr>
+
+</table>
+
+
+</body>
+</html>
