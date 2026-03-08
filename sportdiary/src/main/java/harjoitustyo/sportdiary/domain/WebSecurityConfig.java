@@ -67,7 +67,12 @@ public class WebSecurityConfig {
                         "user@email.com",
                         "ROLE_USER"
                 );
-
+    User user2 = new User(
+                        "user2",
+                        passwordEncoder.encode("password2"),
+                        "user2@email.com",
+                        "ROLE_USER"
+                );
                 User admin = new User(
                         "admin",
                         passwordEncoder.encode("admin"),
@@ -76,6 +81,7 @@ public class WebSecurityConfig {
                 );
 
                 userRepository.save(user);
+                 userRepository.save(user2);
                 userRepository.save(admin);
 
                 
